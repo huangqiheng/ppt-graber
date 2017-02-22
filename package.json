@@ -1,0 +1,21 @@
+{
+  "name": "ppt-graber",
+  "version": "1.0.0",
+  "description": "ppt record from v4l2 dev input",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huangqiheng/ppt-graber.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/huangqiheng/ppt-graber/issues"
+  },
+  "homepage": "https://github.com/huangqiheng/ppt-graber#readme"
+}
