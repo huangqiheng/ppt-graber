@@ -4,7 +4,8 @@
   "description": "ppt record from v4l2 dev input",
   "main": "index.js",
   "dependencies": {
-    "mjpeg-camera": "^1.7.2",
+    "mjpeg-consumer": "^1.1.0",
+    "motion-detect": "^0.2.4",
     "v4l2camera": "^1.0.4"
   },
   "devDependencies": {},
