@@ -33,7 +33,7 @@ make menuconfig
 	5)Magewell Procapture audio/video grabber and encoder [=*]
 
 make-kpkg clean
-make-kpkg --initrd --revision and.001 --append-to-version magewell kernel_image kernel_headers
+make-kpkg --initrd --revision 1.01 --append-to-version magewell kernel_image kernel_headers
 
 dpkg -i linux-image-*.deb
 dpkg -i linux-headers-*.deb
