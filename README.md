@@ -28,8 +28,10 @@ make mrproper
 cp /boot/config-$(uname -r) .config
 make menuconfig
 	1)load .config
-	2)General Setup --> Prompt for development and/or incomplete code/drivers
-	3)remove *
+	2)Device Drivers
+	3)Multimedia support (MEDIA_SUPPORT [=*])                                                                                           x
+	4)Media PCI Adapters (MEDIA_PCI_SUPPORT [=*]) 
+	5)Magewell Procapture audio/video grabber and encoder [=*]
 
 make-kpkg clean
 make-kpkg --initrd kernel_image kernel_headers
