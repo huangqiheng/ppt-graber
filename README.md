@@ -25,7 +25,10 @@ unzip magewell-pro-capture-pro_capture.zip
 cd magewell-pro-capture-pro_capture
 
 make mrproper
+
 cp /boot/config-$(uname -r) .config
+echo "CONCURRENCY := $(expr `nproc` + 1)" >> /etc/kernel-pkg.conf
+
 make menuconfig
 	1)load .config
 	2)Device Drivers
