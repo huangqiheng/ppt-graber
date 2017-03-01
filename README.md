@@ -28,7 +28,7 @@ echo "CONCURRENCY := $(expr `nproc` + 1)" >> /etc/kernel-pkg.conf
 make menuconfig
 	1)load .config
 	2)Device Drivers
-	3)Multimedia support (MEDIA_SUPPORT [=*])                                                                                           x
+	3)Multimedia support (MEDIA_SUPPORT [=*])
 	4)Media PCI Adapters (MEDIA_PCI_SUPPORT [=*]) 
 	5)Magewell Procapture audio/video grabber and encoder [=*]
 
@@ -41,6 +41,11 @@ dpkg -i linux-headers-*.deb
 vim /etc/default/grub
 GRUB_DEFAULT='Advanced options for Ubuntu>Ubuntu, with Linux 4.8.0-rc7'
 update-grub
+
+or
+
+grub-set-default 0
+grub-reboot 0
 
 reboot
 uname -r
