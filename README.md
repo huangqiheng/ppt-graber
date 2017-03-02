@@ -47,11 +47,8 @@ dpkg -i linux-headers-*.deb
 vim /etc/default/grub
 GRUB_DEFAULT='Advanced options for Ubuntu>Ubuntu, with Linux 4.8.0-rc7'
 update-grub
-
-or
-
-grub-set-default 0
-grub-reboot 0
+-------------------- or --------------------
+grub-set-default 0  or  grub-reboot 0
 
 reboot
 uname -r
