@@ -20,17 +20,16 @@ wget https://codeload.github.com/jeremymcrhat/magewell-pro-capture/zip/pro_captu
 unzip magewell-pro-capture-pro_capture.zip 
 cd magewell-pro-capture-pro_capture
 
-make mrproper
-
 cp /boot/config-$(uname -r) .config
 echo "CONCURRENCY := $(expr `nproc` + 1)" >> /etc/kernel-pkg.conf
 
+make mrproper
 make menuconfig
 	1)load .config
 	2)Device Drivers
-	3)Multimedia support (MEDIA_SUPPORT [=*])                                                                                           x
-	4)Media PCI Adapters (MEDIA_PCI_SUPPORT [=*]) 
-	5)Magewell Procapture audio/video grabber and encoder [=*]
+	3)Multimedia support
+	4)Media PCI Adapters
+	5)Magewell Procapture audio/video grabber and encoder [=M]
 
 make-kpkg clean
 make-kpkg --initrd --revision 1.01 --append-to-version -magewell kernel_image kernel_headers
@@ -48,6 +47,11 @@ dpkg -i linux-headers-*.deb
 vim /etc/default/grub
 GRUB_DEFAULT='Advanced options for Ubuntu>Ubuntu, with Linux 4.8.0-rc7'
 update-grub
+
+or
+
+grub-set-default 0
+grub-reboot 0
 
 reboot
 uname -r
