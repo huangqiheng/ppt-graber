@@ -35,6 +35,13 @@ make menuconfig
 make-kpkg clean
 make-kpkg --initrd --revision 1.01 --append-to-version -magewell kernel_image kernel_headers
 
+wget https://01.org/sites/default/files/downloads/intelr-graphics-linux/kblgucver914.tar.bz2
+tar xvf kblgucver914.tar.bz2 && cd kblgucver914 && ./install
+wget https://01.org/sites/default/files/downloads/intelr-graphics-linux/bxtgucver87.tar.bz2
+tar xvf bxtgucver87.tar.bz2 && cd bxtgucver87 && ./install
+wget https://01.org/sites/default/files/downloads/intelr-graphics-linux/kbldmcver101.tar.bz2
+tar xvf kbldmcver101.tar.bz2 && cd kbldmcver101 && ./install
+
 dpkg -i linux-image-*.deb
 dpkg -i linux-headers-*.deb
 
