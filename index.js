@@ -2,6 +2,8 @@
 
 const ARGS = {
 	device: '/dev/video0',
+	width: 640,
+	height: 360,
 	interval: 1000,
 	threshold: 0x15, 
 	minChange: 1
@@ -56,15 +58,6 @@ cam.capture(function loop() {
 		fs.createWriteStream(jpg_file).end(new Buffer(raw));
 	}
 
-
 	setTimeout(()=> {cam.capture(loop);}, ARGS.interval);
 });
 
-
-function toArrayBuffer(buf) {
-    var ab = new Array(buf.length);
-    for (var i = 0; i < buf.length; ++i) {
-        ab[i] = buf[i];
-    }
-    return ab;
-}
