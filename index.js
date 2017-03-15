@@ -1,12 +1,24 @@
-const v4l2camera = require("v4l2camera");
-const fs =  require("fs");
+////////////////////////////////////////////////////////////////////////
 
-var device = '/dev/video0';
-var width = 320;
-var height = 240;
+const ARGS = {
+	device: '/dev/video0',
+	interval: 1000,
+	threshold: 0x15, 
+	minChange: 1
+}
+
+////////////////////////////////////////////////////////////////////////
+const fs =  require("fs");
+const v4l2camera = require("v4l2camera");
+const Motion = require('motion-detect').Motion;
+
+const motion = new Motion({
+	threshold: ARGS.threshold, 
+	minChange: ARGS.minChange
+});
 
 try {
-    var cam = new v4l2camera.Camera(device)
+    var cam = new v4l2camera.Camera(ARGS.device)
 } catch (err) {
     console.log("v4l2camera error");
     process.exit(1);
@@ -25,19 +37,34 @@ if (format === null) {
   process.exit(1);
 }
 
-format.width = width;
-format.height = height;
+format.width = 640;
+format.height = 360;
+//format.interval.numerator = 1;
+//format.interval.denominator = 1;
 
 cam.configSet(format);
 cam.start();
 
-console.log("Width:"+cam.width+"Height:"+cam.height)
-
 var cap_index = 0;
 cam.capture(function loop() {
 	let raw = cam.frameRaw();
-	let jpg_file = `result${cap_index++}.jpg`;
-	fs.createWriteStream(jpg_file).end(Buffer(raw));
-	cam.capture(loop);
+	let hasMotion = motion.detect(raw);
+
+	if (hasMotion) {
+		console.log('detect motion: hasMotion');
+		let jpg_file = `result${cap_index++}.jpg`;
+		fs.createWriteStream(jpg_file).end(new Buffer(raw));
+	}
+
+
+	setTimeout(()=> {cam.capture(loop);}, ARGS.interval);
 });
 
+
+function toArrayBuffer(buf) {
+    var ab = new Array(buf.length);
+    for (var i = 0; i < buf.length; ++i) {
+        ab[i] = buf[i];
+    }
+    return ab;
+}
