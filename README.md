@@ -78,3 +78,11 @@ cd ppt-graber
 npm install
 
 ```
+
+
+### view jpg in linuex console
+
+```
+apt install caca-utils
+cacaview /PATH/TO/image.jpg
+```
