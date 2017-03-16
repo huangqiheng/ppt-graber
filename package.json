@@ -4,6 +4,7 @@
   "description": "ppt record from v4l2 dev input",
   "main": "index.js",
   "dependencies": {
+    "mkdirp": "^0.5.1",
     "motion-detect": "huangqiheng/motion",
     "v4l2camera": "^1.0.4"
   },
