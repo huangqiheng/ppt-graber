@@ -1,5 +1,8 @@
 # Logs
 index.html
+*.swp
+
+
 logs
 *.log
 npm-debug.log*
