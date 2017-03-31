@@ -1,0 +1,13 @@
+[Unit]
+Description=Motion daemon
+After=vsrc.service
+
+[Service]
+ExecStart=/usr/local/bin/motion -c /usr/local/etc/motion/motion.conf -p /var/run/motion.pid
+Type=simple
+Restart=always
+StandardError=null
+RestartSec=8
+
+[Install]
+WantedBy=multi-user.target

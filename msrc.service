@@ -1,0 +1,13 @@
+[Unit]
+Description= source mjpeg input
+After=ffserver.service
+
+[Service]
+Type=simple
+ExecStart=/root/ppt-graber/ffmpeg-mjpeg.sh
+Restart=always
+RestartSec=8
+StandardError=null
+
+[Install]
+WantedBy=multi-user.target
