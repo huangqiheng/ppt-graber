@@ -1,4 +1,6 @@
-# ppt-graber ## initial install dependent tools ```
+# ppt-graber ## initial install dependent tools 
+
+```
 apt update -y && apt upgrade -y
 apt install -y build-essential python
 
