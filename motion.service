@@ -3,7 +3,7 @@ Description=Motion daemon
 After=vsrc.service
 
 [Service]
-ExecStart=/usr/local/bin/motion -c /usr/local/etc/motion/motion.conf -p /var/run/motion.pid
+ExecStart=/usr/local/bin/motion -p /var/run/motion.pid
 Type=simple
 Restart=always
 StandardError=null
