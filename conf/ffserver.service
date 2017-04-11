@@ -3,7 +3,7 @@ Description=ffserver streaming server
 After=vsrc.service
 
 [Service]
-ExecStart=/usr/bin/ffserver -f /root/ppt-graber/ffserver.conf
+ExecStart=/usr/bin/ffserver -f /root/ppt-graber/conf/ffserver.conf
 Type=simple
 Restart=always
 RestartSec=8

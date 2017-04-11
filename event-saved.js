@@ -25,7 +25,7 @@ var imgurl = 'http://' + address + path;
 http.get({
 	hostname: 'dshow.doctorcom.com',
 	path: '/hcx/pptliveurl?url=' + querystring.escape(imgurl) + '&aidStr=' + AID_STR,
-	timeout: 5000
+	timeout: 1000
 }, (res) => {
 	if (res.statusCode !== 200) {
 		syslog.error('sync error('+res.statusCode+') : ' + res.url);

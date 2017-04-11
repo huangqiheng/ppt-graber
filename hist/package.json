@@ -4,11 +4,12 @@
   "description": "ppt record from v4l2 dev input",
   "main": "index.js",
   "dependencies": {
-    "async": "^2.3.0",
-    "graceful-fs": "^4.1.11",
+    "mjpeg-server": "^0.3.0",
     "mkdirp": "^0.5.1",
     "modern-syslog": "^1.1.4",
-    "node-echo": "^0.1.1"
+    "motion-detect": "huangqiheng/motion",
+    "node-echo": "^0.1.1",
+    "v4l2camera": "^1.0.4"
   },
   "devDependencies": {},
   "scripts": {
