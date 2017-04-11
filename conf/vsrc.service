@@ -8,7 +8,7 @@ Type=simple
 ExecStartPre=/sbin/modprobe v4l2loopback video_nr=1,2
 ExecStart=/root/ppt-graber/ffmpeg-input.sh
 Restart=always
-RestartSec=8
+RestartSec=3
 StandardError=null
 
 [Install]
