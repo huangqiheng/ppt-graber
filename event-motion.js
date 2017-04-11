@@ -16,8 +16,6 @@ if (process.argv.length <= 2) {
 }
 
 let img_path = process.argv[2];
-let address = ifaces[conf.AID_IFACE][0].address;
-let imgurl = 'http://' + address + img_path.slice(conf.WEB_ROOT.length);
 let time = Date.now();
 
 async.waterfall([(callback)=> {
@@ -136,8 +134,24 @@ async.waterfall([(callback)=> {
 		}
 
 		syslog.alert('------------------> report: ', report_file, time_pass, ' <--------------------');
+
+		let address = ifaces[conf.AID_IFACE][0].address;
+		let imgurl = 'http://' + address + report_file.slice(conf.WEB_ROOT.length);
+
+		syslog.alert('report as: ', imgurl);
+
+		http.get({
+			hostname: conf.REPORT_HOST,
+			path: '/hcx/pptliveurl?url=' + querystring.escape(imgurl) + '&aidStr=' + conf.AID_STR,
+			timeout: 1000
+		}, (res) => {
+			if (res.statusCode !== 200) {
+				return syslog.error('sync error('+res.statusCode+') : ' + res.url);
+			}
+			syslog.alert('done report');
+		});
 	} else {
 		//syslog.alert('ignore: ', error, result);
+		setTimeout(()=>{process.exit(-1)},200);
 	}
-	setTimeout(()=>{process.exit(-1)},200);
 });
