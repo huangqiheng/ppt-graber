@@ -1,6 +1,9 @@
 module.exports = {
-	AID_STR : 'xxxxxxxxxxxxxxxxxxxx',
-	AID_IFACE : 'eno1',
-	WEB_ROOT : '/root/ppt-graber/html',
+	AID_STR : 'xxxxxxxxxxxxxxxx',
+	AID_IFACE : 'wlp2s0b1',
+	WEB_ROOT :  '/root/ppt-graber/html',
+	PICS_ROOT: '/root/ppt-graber/html/pics',
+	SHOWS_ROOT: '/root/ppt-graber/html/shows',
+	MAX_HIST: 10,
+	REPORT_HOST: 'your.domain.name',
 };
-
