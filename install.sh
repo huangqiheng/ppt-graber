@@ -1,6 +1,10 @@
 #!/bin/bash
 
-apt install fswebcam imagemagick redis-server nginx
+apt install -y motion nginx
+apt install -y redis-server imagemagick bc
+
+ln -sf /root/ppt-graber/nginx.conf /etc/nginx/nginx.conf
+systemctl restart nginx
 
 exit 0
 
