@@ -1,9 +1,0 @@
-REPORT_HOST='dshow.doctorcom.com'
-AID_STR='NDEzOTE0ODg4NzgyOTg4NTE='
-AID_IFACE='wlp2s0b1'
-WEB_ROOT='/root/ppt-graber/html'
-PICS_ROOT='/root/ppt-graber/html/pics'
-SHOWS_ROOT='/root/ppt-graber/html/shows'
-MAX_QUE_LEN=32
-STATIC_SECS=2
-DIFF_THRESHOLD=2000

@@ -1,6 +1,7 @@
 # Logs
 index.html
 config.js
+config.sh
 *.swp
 
 logs
