@@ -116,7 +116,7 @@ report_remote ()
 	IFS=' ' read -r x local_ip_addr xx <<< $ifconfig_res
 
 	if [ -z $local_ip_addr ]; then
-		log "can\'t not get ip address from ${wlp2s0b1}"
+		log "can\'t not get ip address from ${local_ip_addr}"
 		return 1
 	fi
 
