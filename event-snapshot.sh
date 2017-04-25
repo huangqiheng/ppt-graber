@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./config.sh
+source /root/ppt-graber/config.sh
 
 main () 
 {
@@ -112,8 +112,8 @@ report_remote ()
 
 	cp -f $new_img_file $show_file
 
-	ifconfig_res=`ifconfig $AID_IFACE | grep -E "inet.*netmask"`
-	IFS=' ' read -r x local_ip_addr xx <<< $ifconfig_res
+	ifconfig_res=`ifconfig $AID_IFACE | grep -E "inet "`
+	IFS=' :' read -r x xx local_ip_addr xxx <<< $ifconfig_res
 
 	if [ -z $local_ip_addr ]; then
 		log "can\'t not get ip address from ${local_ip_addr}"
